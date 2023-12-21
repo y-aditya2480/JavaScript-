@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM part 4</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+
+<script>
+    function addLanguage(langName) {
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`;
+
+        document.querySelector('.language').append(li);
+    }
+
+    addLanguage("python");
+    addLanguage("c++");
+
+    // optimized technique..
+    function addOptiLanguage(langName) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))       //createTextNode...
+        document.querySelector('.language').appendChild(li);
+    }
+    addOptiLanguage("java")
+
+    //EDIT THE ELEMENT...
+
+    const secondLang = document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML = "HIndi"
+    const newli = document.createElement('li')
+    newli.textContent = "hindi"     //testContent is similar to innerHTML
+    secondLang.replaceWith(newli)       //repalceWith() is a new function used to edit the element...
+
+    const firstlang = document.querySelector("li:nth-child(1)")
+    firstlang.outerHTML = '<li>TypeScript</li>'
+
+    //REMOVE
+
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+</script>
+</html>
+
+
+<!-- IMPORTANT NOTES 
+
+    ->USE appendChild in place of append as it an optimized way...
+    ->repalceWith() is a new function used to edit the element...
+    ->//testContent is similar to innerHTML...
+-->

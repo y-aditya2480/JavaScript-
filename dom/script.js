@@ -16,3 +16,4 @@ const myArr = Array.from(tempClassList);
 myArr.forEach(function(l) {
     l.style.color = "red"
 })
+
